@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nativo ou não</title>
+    
+</head>
+<body>
+    <h1>Sistema de nacionalidade</h1>
+    <div>Me informe seu Pais de origem: <input type="text" name="origem" id="origem"></div>
+
+    <div>Me informe o seu Pais atual: <input type="text" name="pais" id="pais"></div>
+
+    <div><input type="button" value="Verificar" onclick="comparar()"></div>
+
+    <div id="res"></div>
+
+    <script>
+        function comparar(){
+            var origem = document.getElementById('origem')
+            var pais = document.getElementById('pais')
+            var res = document.getElementById('res')
+            res.innerHTML = `Seu pais de origem é: ${origem}`
+            
+            
+        }
+
+    </script>
+
+
+    
+</body>
+</html>
