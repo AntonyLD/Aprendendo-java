@@ -4,29 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nativo ou não</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
     
 </head>
 <body>
-    <h1>Sistema de nacionalidade</h1>
-    <div>Me informe seu Pais de origem: <input type="text" name="origem" id="origem"></div>
+    <h1>Tu é? </h1>
+    
+    <div><img id="imagem" src="amigo.jpg"></div>
 
-    <div>Me informe o seu Pais atual: <input type="text" name="pais" id="pais"></div>
+    <div id="resposta1"> É benino ou benina?<input type="text" name="genero" id="genero"></div>
 
-    <div><input type="button" value="Verificar" onclick="comparar()"></div>
+    <div id="resposta2">Tu gosta de benino benina ou benino? <input type="text" name="gosta" id="gosta"> </div>
+
+    <input id="button" type="button" value="Eu sou?" onclick="verificar()">
 
     <div id="res"></div>
 
-    <script>
-        function comparar(){
-            var origem = document.getElementById('origem')
-            var pais = document.getElementById('pais')
-            var res = document.getElementById('res')
-            res.innerHTML = `Seu pais de origem é: ${origem}`
-            
-            
-        }
 
+    <script>
+        function verificar(){
+
+        var generotxt = document.getElementById ('genero')
+        var generovalor = (generotxt.value)
+
+        var gostatxt = document.getElementById ('gosta')
+        var gostavalor = (gostatxt.value)
+
+        var resposta = document.getElementById ('res')
+        if (generovalor == gostavalor) {
+            resposta.innerHTML = '<img src="eleé.jpg" alt="Homoxecsualicus" style="border-radius: 10px;width: 300px; height: 300px; box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.486);">'
+        } else {
+            resposta.innerHTML = '<img src="heterobarba.jpg" alt="Homoxecsualicus" style="border-radius: 10px;width: 300px; height: 300px; box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.486);">'
+            resposta.innerHTML += '<br>Tu é Hetero cara?'
+        }
+        }
+        
     </script>
+
 
 
     
