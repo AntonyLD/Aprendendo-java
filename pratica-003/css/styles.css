@@ -132,8 +132,11 @@ header nav {
     transition: 0.5s;
 }
 
-#main-content #product-iamge.changing {
+
+
+.changing {
     opacity: 0.5;
+    transition: 1s;
 }
 
 #image-picker {
