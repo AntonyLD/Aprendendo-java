@@ -85,11 +85,11 @@ const data = [
   //eventos
   [heightInput, weightInput].forEach((el) => {
     el.addEventListener("input", (e) => {
-        const updatedValue = validDigits(e.target.value)
-
-        e.target.value = updatedValue
-    })
-  })
+      const updatedValue = validDigits(e.target.value);
+  
+      e.target.value = updatedValue;
+    });
+  });
 
   clearBtn.addEventListener("click", (e) => {
     e.preventDefault()
