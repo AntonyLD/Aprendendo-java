@@ -38,49 +38,56 @@ const data = [
 
   //Seleção de elementos
 
-  const imcTable = document.querySelector("#imc-table")
+  const imcTable = document.querySelector("#imc-table");
 
-  const heightInput = document.querySelector("#height")
-  const weightInput = document.querySelector("#weight")
-  const calcBtn = document.querySelector("#calc-btn")
-  const clearBtn = document.querySelector("#clear-btn")
+  const heightInput = document.querySelector("#height");
+  const weightInput = document.querySelector("#weight");
+  const calcBtn = document.querySelector("#calc-btn");
+  const clearBtn = document.querySelector("#clear-btn");
 
   //funções
-  function createTable (data) {
-    data.forEach((item) =>{
-        const div = document.createElement("div")
-        div.classList.add("table-data")
-
-        const classification = document.createElement("p")
-        classification.innerText = item.classification
-
-        const info = document.createElement("p")
-        info.innerText = item.info
-
-        const obesity = document.createElement("p")
-        obesity.innerText = item.obesity
-
-        div.appendChild(classification)
-        div.appendChild(info)
-        div.appendChild(obesity)
-
-        imcTable.appendChild(div)
-    })
+  function createTable(data) {
+    data.forEach((item) => {
+      const div = document.createElement("div");
+      div.classList.add("table-data");
+  
+      const classification = document.createElement("p");
+      classification.innerText = item.classification;
+  
+      const info = document.createElement("p");
+      info.innerText = item.info;
+  
+      const obesity = document.createElement("p");
+      obesity.innerText = item.obesity;
+  
+      div.appendChild(classification);
+      div.appendChild(info);
+      div.appendChild(obesity);
+  
+      imcTable.appendChild(div);
+    });
   }
 
-  function cleanInput() {
-    heightInput.value = ""
-    weightInput.value = ""
+  function cleanInputs() {
+  heightInput.value = "";
+  weightInput.value = "";
 
   }
+  
 
   function validDigits(text) {
     return text.replace(/[^0-9,]/g, "")
   }
 
+  function calcImc(weight, height) {
+    const imc = (weight / (height * height)).toFixed(1);
+
+    return imc;
+  }
+
 
   //inicialização
-  createTable(data)
+  createTable(data);
 
   //eventos
   [heightInput, weightInput].forEach((el) => {
@@ -91,7 +98,22 @@ const data = [
     });
   });
 
+  calcBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const weight = +weightInput.value.replace(",", ".");
+    const height = +heightInput.value.replace(",", ".");
+    console.log(weight, height);
+    if (!weight || !height) return;
+
+    const imc = calcImc(weight, height);
+
+    console.log(imc);
+  }) 
+
+
+
   clearBtn.addEventListener("click", (e) => {
     e.preventDefault()
-    cleanInput()
+    cleanInputs()
   })
